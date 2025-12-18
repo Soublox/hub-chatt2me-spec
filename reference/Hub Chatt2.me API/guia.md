@@ -9,6 +9,11 @@ hidden: false
 icon: 📓
 metadata:
   robots: index
+next:
+  pages:
+    - title: Go to the communication
+      type: link
+      url: https://soublox.readme.io/reference/sendmessengermessage
 ---
 ## What you can do?
 

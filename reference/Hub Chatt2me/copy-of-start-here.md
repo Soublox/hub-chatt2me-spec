@@ -13,16 +13,19 @@ next:
 ---
 ## Announcements
 
-### We are adding support with SMS through Twilio
+### We’re adding SMS support via Twilio.
 
-We will release the version with support to SMS untial February 2026
+Target release: February 2026. We’ll post updates here.
 
 ## Changes
 
 ### 2025-12-18 — v1.0.0 (initial release)
 
-Messenger and Instagram send endpoints; webhook create/list/update/delete; webhook log listing and single/bulk retries; application-level API key regeneration.
+* Messenger and Instagram send endpoints.
+* Webhook create/list/update/delete.
+* Webhook log listing and single/bulk retries.
+* Application-level API key regeneration.
+* Breaking changes: none (first release).
+* Deprecations: none.
 
-Breaking changes: none (first release).
-
-Deprecations: none.
+<br />

@@ -247,6 +247,31 @@ paths:
           description: Invalid API key
         '404':
           description: Application or webhook not found or does not match the API key
+  /v1/communication/messenger/message-1:
+    post:
+      tags:
+        - Communication
+      summary: Copy of Send a Facebook Messenger message
+      operationId: post_v1communicationmessengermessage-1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMessengerMessageInput'
+      responses:
+        '200':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendMessengerMessageOutput'
+        '400':
+          description: Invalid payload
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application channel not found or does not match the API key
 components:
   securitySchemes:
     apiKeyAuth:

@@ -14,15 +14,22 @@ After send you will receive something like that in your webhook:
 
 ```json
 {
-    "eventType":"Message",
-    "timestamp":"2025-12-18T18:51:43.502Z",
+    "eventType":"message_echoes",
+    "timestamp":"2025-12-18T19:07:49.977Z",
     "payload":{
+        "sender":{
+            "id":"847421668462669",
+            "pageId":"847421668462669"
+        },
         "recipient":{
             "id":"26203292189261166"
         },
-        "messaging_type":"RESPONSE",
+        "timestamp":1766084871694,
         "message":{
-            "text":"Hello from chatt2me!"
+            "mid":"m_jcSSLLlfIWmAC1MxwvU7n6IC1qiFOEeW3Kd3rVdZw2ZyKXmT23sTmtZ-3ET2uOJijjH33Iqrgz0sS1x63jMppg",
+            "is_echo":true,
+            "text":"Hello from chatt2me!",
+            "app_id":854313003749170
         }
     }
 }

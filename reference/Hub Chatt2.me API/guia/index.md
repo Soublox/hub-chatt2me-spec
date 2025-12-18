@@ -1,19 +1,11 @@
 ---
-title: Start here!
-excerpt: asdadasdasd
+title: Getting Started
+excerpt: >-
+  Welcome note: brief purpose (send Meta Messenger/Instagram messages, manage
+  webhooks, ...).
 deprecated: false
 hidden: false
+icon: 📓
 metadata:
   robots: index
 ---
-asd
-
-asd
-
-as
-
-das
-
-d
-
-asd

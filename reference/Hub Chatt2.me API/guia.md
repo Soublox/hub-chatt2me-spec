@@ -43,7 +43,7 @@ metadata:
 * Headers include Content-Type: application/json and x-api-key.
 * Payload matches the OpenAPI schema.
 
-Typical errors
+## Typical errors
 
 * 400: Invalid payload.
 * 401: Invalid API key.
@@ -51,4 +51,4 @@ Typical errors
 
 ## Rate limits
 
-Respect published limits; on 429, back off and retry with delay.
+Respect published limits; on 429, back off and retry later.

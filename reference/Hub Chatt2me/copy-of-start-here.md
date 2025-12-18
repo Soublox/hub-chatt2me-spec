@@ -14,5 +14,3 @@ next:
 ---
 * SMS support via Twilio. 
   * Target release: February 2026. We’ll post updates here.
-
-<br />

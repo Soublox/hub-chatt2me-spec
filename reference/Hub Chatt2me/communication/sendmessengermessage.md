@@ -16,7 +16,7 @@ After send you will receive something like that in your webhook:
 {
     "eventType":"Message",
     "timestamp":"2025-12-18T18:51:43.502Z",
-    "channel":"INSTAGRAM",
+    "channel":"MESSENGER",
     "payload":{
         "recipient":{
             "id":"26203292189261166"

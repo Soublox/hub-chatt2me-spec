@@ -1,5 +1,5 @@
 ---
-title: Copy of Start here!
+title: Changelog & Announcements
 deprecated: false
 hidden: false
 metadata:

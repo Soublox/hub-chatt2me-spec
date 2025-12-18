@@ -1,5 +1,5 @@
 ---
-title: Copy of Changelog & Announcements
+title: Changelog
 deprecated: false
 hidden: false
 icon: far fa-list-tree
@@ -11,12 +11,6 @@ next:
       title: Support & Contact
       type: endpoint
 ---
-## Announcements
-
-### We’re adding SMS support via Twilio.
-
-Target release: February 2026. We’ll post updates here.
-
 ## Changes
 
 ### 2025-12-18 — v1.0.0 (initial release)

@@ -1,5 +1,5 @@
 ---
 title: Webhooks
 hidden: false
-icon: 🌐
+icon: far fa-globe
 ---

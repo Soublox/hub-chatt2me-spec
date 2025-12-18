@@ -14,9 +14,6 @@ next:
     - slug: communication
       title: Communication
       type: endpoint
-    - slug: webhooks
-      title: Webhooks
-      type: endpoint
 ---
 ## What you can do?
 

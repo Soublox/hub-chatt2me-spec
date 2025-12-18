@@ -1,5 +1,5 @@
 ---
-title: Send a Facebook Messenger message
+title: Send a message with Facebook Messenger
 excerpt: >-
   Sends a Facebook Messenger message through Meta’s messaging APIs using your
   application’s channel and x-api-key. Supports text plus Messenger-specific

@@ -98,5 +98,61 @@ After send you will receive something like that in your webhook:
     }
 }
 ```
-```json
+```json Quick Reply
+{
+    "eventType":"Message",
+    "timestamp":"2025-12-18T20:21:14.905Z",
+    "payload":{
+        "recipient":{
+            "id":"847495124317323"
+        },
+        "message":{
+            "text":"Como posso ajudar?",
+            "quick_replies":[
+                {
+                    "content_type":"text",
+                    "title":"Suporte",
+                    "payload":"SUPORTE"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Vendas",
+                    "payload":"VENDAS"
+                }
+            ]
+        }
+    }
+}
+```
+```json Generic Template
+{
+    "eventType":"Message",
+    "timestamp":"2025-12-18T20:21:21.093Z",
+    "payload":{
+        "recipient":{
+            "id":"847495124317323"
+        },
+        "message":{
+            "attachment":{
+                "type":"template",
+                "payload":{
+                    "template_type":"button",
+                    "text":"Tap a button",
+                    "buttons":[
+                        {
+                            "type":"web_url",
+                            "url":"https://www.messenger.com",
+                            "title":"Abrir"
+                        },
+                        {
+                            "type":"postback",
+                            "title":"Falar com suporte",
+                            "payload":"SUPORTE"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
 ```

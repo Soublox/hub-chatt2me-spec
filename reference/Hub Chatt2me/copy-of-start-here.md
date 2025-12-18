@@ -2,7 +2,7 @@
 title: Announcements
 deprecated: false
 hidden: false
-icon: far fa-list-tree
+icon: far fa-megaphone
 metadata:
   robots: index
 next:

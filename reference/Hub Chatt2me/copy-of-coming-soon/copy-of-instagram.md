@@ -1,5 +1,5 @@
 ---
-title: Copy of Instagram
+title: Messenger
 deprecated: false
 hidden: false
 metadata:

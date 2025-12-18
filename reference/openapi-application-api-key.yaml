@@ -247,7 +247,6 @@ paths:
           description: Invalid API key
         '404':
           description: Application or webhook not found or does not match the API key
-  /v1/communication/messenger/message-1: {}
 components:
   securitySchemes:
     apiKeyAuth:
@@ -322,8 +321,6 @@ components:
       properties:
         text:
           type: string
-        attachment:
-          $ref: '#/components/schemas/Attachment'
         attachments:
           type: array
           items:
@@ -359,7 +356,7 @@ components:
         recipientId:
           type: string
         type:
-          $ref: '#/components/schemas/MessageType'
+          $ref: '#/components/schemas/MessengerMessageType'
     SendInstagramMessageContent:
       type: object
       properties:
@@ -398,7 +395,7 @@ components:
         recipientId:
           type: string
         type:
-          $ref: '#/components/schemas/MessageType'
+          $ref: '#/components/schemas/InstagramMessageType'
     CreateWebhookHeaderInput:
       type: object
       properties:
@@ -630,23 +627,29 @@ components:
             $ref: '#/components/schemas/RetryWebhookLogResult'
       required:
         - results
-    MessageType:
+    InstagramMessageType:
       type: string
       enum:
         - Text
-        - File
-        - Location
-        - Template
-        - Contact
-        - Button
-        - List
-        - Card
-        - Carousel
-        - Replyable
+        - Image
+        - Video
+        - Audio
         - Sticker
-        - Reaction
-        - Read
+        - File
         - QuickReply
+        - Button
+        - Carousel
+    MessengerMessageType:
+      type: string
+      enum:
+        - Text
+        - Image
+        - Video
+        - Audio
+        - File
+        - QuickReply
+        - Button
+        - Carousel
     EventType:
       type: string
       enum:

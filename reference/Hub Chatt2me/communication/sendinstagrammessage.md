@@ -63,5 +63,40 @@ After send you will receive something like that in your webhook:
     }
 }
 ```
+```json Video
+{
+    "eventType":"Message",
+    "timestamp":"2025-12-18T20:21:04.313Z",
+    "payload":{
+        "recipient":{
+            "id":"847495124317323"
+        },
+        "message":{
+            "attachment":{
+                "type":"video",
+                "payload":{
+                    "url":"https://lookaside.fbsbx.com/ig_messaging_cdn/?asset_id=1154048980043118&signature=AYdxC0OFuVRg1k3-1P2U7-zus7__DZEJUFPuRik60A4VH5gk7s4zzFrTeCW364diqG5fYhbxcu1lEx2-oidxa1_o7aH2H9EW9DLj1SvshJiXzdvedcv30znZPoS4N2hxssHwm2jUqbclpowleNfUFgz-j5Ttktm-37ESJhJhyPbJ9o8ErNpURmOVV0nq3kxtQnC83q5gjVmb_4MonO5yc5KO5PxJAwQ"
+                }
+            }
+        }
+    }
+}
 ```
+```json Sticker
+{
+    "eventType":"Message",
+    "timestamp":"2025-12-18T20:21:09.535Z",
+    "payload":{
+        "recipient":{
+            "id":"847495124317323"
+        },
+        "message":{
+            "attachment":{
+                "type":"like_heart"
+            }
+        }
+    }
+}
+```
+```json
 ```

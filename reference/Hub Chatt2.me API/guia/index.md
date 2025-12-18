@@ -11,9 +11,12 @@ metadata:
   robots: index
 next:
   pages:
-    - title: Go to the communication
-      type: link
-      url: https://soublox.readme.io/reference/sendmessengermessage
+    - slug: communication
+      title: Communication
+      type: endpoint
+    - slug: webhooks
+      title: Webhooks
+      type: endpoint
 ---
 ## What you can do?
 

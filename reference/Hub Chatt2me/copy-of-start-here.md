@@ -1,8 +1,8 @@
 ---
-title: Announcements
+title: Coming soon
 deprecated: false
 hidden: false
-icon: far fa-megaphone
+icon: far fa-crystal-ball
 metadata:
   robots: index
 next:
@@ -14,3 +14,5 @@ next:
 ## We’re adding SMS support via Twilio.
 
 Target release: February 2026. We’ll post updates here.
+
+<br />

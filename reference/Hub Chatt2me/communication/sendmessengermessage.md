@@ -63,3 +63,61 @@ After send you will receive something like that in your webhook:
     }
 }
 ```
+```json Audio
+{
+    "eventType":"message_echoes",
+    "timestamp":"2025-12-18T19:16:35.197Z",
+    "payload":{
+        "sender":{
+            "id":"847421668462669",
+            "pageId":"847421668462669"
+        },
+        "recipient":{
+            "id":"26203292189261166"
+        },
+        "timestamp":1766085396386,
+        "message":{
+            "mid":"m_16rlrSqf_SZcZensx2y5saIC1qiFOEeW3Kd3rVdZw2bDjvVFRQvZ69XcKShKC70B-VuQUGZfYvXfo5ClpR4ndw",
+            "is_echo":true,
+            "app_id":854313003749170,
+            "attachments":[
+                {
+                    "type":"audio",
+                    "payload":{
+                        "url":"https://scontent-sea5-1.cdn.fbsbx.com/v/t59.3654-21/594398540_1336743217779384_7274673520964647568_n.mp4/audioclip-1766085393000-8824.mp4?_nc_cat=111&ccb=1-7&_nc_sid=d61c36&_nc_ohc=HMNcclmv9AkQ7kNvwHM9qrB&_nc_oc=AdmgsbK0Lz3YMhJp4a3yvJvtNqUWKaD9YbtxGIL6egjHlku-YHbW7KEmkpVlJtJbhdLqDCYQDJZgMhU4wcKBQ5Mq&_nc_zt=28&_nc_ht=scontent-sea5-1.cdn.fbsbx.com&_nc_gid=86Xk-t1UEcjvymF3rBk9Iw&oh=03_Q7cD4AGaW7fXspEIWZ-teLESQDerdkG5gvxZEDIZwG8rTi6Ckw&oe=694633FA"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+```json Video
+{
+    "eventType":"message_echoes",
+    "timestamp":"2025-12-18T19:17:50.400Z",
+    "payload":{
+        "sender":{
+            "id":"847421668462669",
+            "pageId":"847421668462669"
+        },
+        "recipient":{
+            "id":"26203292189261166"
+        },
+        "timestamp":1766085471807,
+        "message":{
+            "mid":"m_20BC3oeZnZcalu_1E2tm5qIC1qiFOEeW3Kd3rVdZw2YBDe9RKygKOiEURj0mULBpgia7RK9aZaOFw7VOFLb_2g",
+            "is_echo":true,
+            "app_id":854313003749170,
+            "attachments":[
+                {
+                    "type":"video",
+                    "payload":{
+                        "url":"https://video-sea1-1.xx.fbcdn.net/v/t42.3356-2/593677095_25785160294423301_922898644984382577_n.mp4?_nc_cat=101&ccb=1-7&_nc_sid=4f86bc&_nc_ohc=Z_-VYjvUPAQQ7kNvwG2A873&_nc_oc=AdkE_3UeG8VnRW48f72rcqHt0CImkHk8N61WVn2vrLmdT_5IL1kzYz7GvBUogWTMxj0f9FL4YSt2VhH57DcjAR_Y&_nc_zt=28&_nc_ht=video-sea1-1.xx&_nc_gid=bvFwAhbPnQsiCgJnDj0H_Q&oh=03_Q7cD4AF7QfTCyG6pAf7pRDvcW9epLJP2y3TgjI3GX6A4RVx-7Q&oe=69462ED1"
+                    }
+                }
+            ]
+        }
+    }
+}
+```

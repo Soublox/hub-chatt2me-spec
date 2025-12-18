@@ -11,6 +11,12 @@ next:
       title: Support & Contact
       type: endpoint
 ---
+## Announcements
+
+### We are adding support with SMS through Twilio
+
+We will release the version with support to SMS untial February 2026
+
 ## Changes
 
 ### 2025-12-18 — v1.0.0 (initial release)

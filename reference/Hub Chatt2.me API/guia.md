@@ -9,6 +9,8 @@ hidden: false
 icon: 📓
 metadata:
   robots: index
+next:
+  description: Go to the communication
 ---
 ## What you can do?
 

@@ -121,3 +121,122 @@ After send you will receive something like that in your webhook:
     }
 }
 ```
+```json QuickReply
+{
+    "eventType":"message_echoes",
+    "timestamp":"2025-12-18T19:19:01.034Z",
+    "payload":{
+        "sender":{
+            "id":"847421668462669",
+            "pageId":"847421668462669"
+        },
+        "recipient":{
+            "id":"26203292189261166"
+        },
+        "timestamp":1766085542708,
+        "message":{
+            "mid":"m_IREPZNkSy5nYfVTdiJ-oyqIC1qiFOEeW3Kd3rVdZw2bWk9RV1fqUPAqnXZ7vimpl0H1BelLlydDViwQjt22M1w",
+            "is_echo":true,
+            "text":"Como posso ajudar?",
+            "app_id":854313003749170
+        }
+    }
+}
+```
+```json Button
+{
+    "eventType":"message_echoes",
+    "timestamp":"2025-12-18T19:20:12.461Z",
+    "payload":{
+        "sender":{
+            "id":"847421668462669",
+            "pageId":"847421668462669"
+        },
+        "recipient":{
+            "id":"26203292189261166"
+        },
+        "timestamp":1766085614186,
+        "message":{
+            "mid":"m_ielRXxOyqEZj5HOKF5ozIqIC1qiFOEeW3Kd3rVdZw2ah_eDGCLRbBKkQQ-QigHH7AyltGo5PUrJiek1_AWPexQ",
+            "is_echo":true,
+            "text":"Tap a button",
+            "app_id":854313003749170,
+            "attachments":[
+                {
+                    "type":"template",
+                    "title":"Tap a button",
+                    "payload":{
+                        "template_type":"button",
+                        "buttons":[
+                            {
+                                "type":"web_url",
+                                "title":"Abrir",
+                                "url":"https://www.messenger.com/"
+                            },
+                            {
+                                "type":"postback",
+                                "title":"Falar com suporte",
+                                "payload":"SUPORTE"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+```json Generic Template
+{
+    "eventType":"message_echoes",
+    "timestamp":"2025-12-18T19:20:16.499Z",
+    "payload":{
+        "sender":{
+            "id":"847421668462669",
+            "pageId":"847421668462669"
+        },
+        "recipient":{
+            "id":"26203292189261166"
+        },
+        "timestamp":1766085618240,
+        "message":{
+            "mid":"m_WVU2S8KLGtqk-hzsjf0yUaIC1qiFOEeW3Kd3rVdZw2ZkOowbql_QfCJlerTCPkMo8NG6YS4HyMTfarpgmD37xQ",
+            "is_echo":true,
+            "app_id":854313003749170,
+            "attachments":[
+                {
+                    "type":"template",
+                    "title":"Card 1",
+                    "payload":{
+                        "template_type":"generic",
+                        "sharable":false,
+                        "elements":[
+                            {
+                                "title":"Card 1",
+                                "image_url":"https://img.odcdn.com.br/wp-content/uploads/2025/03/pokemon-tipo-1920x1080.jpg",
+                                "default_action":{
+                                    "type":"web_url",
+                                    "url":"https://example.com/"
+                                },
+                                "buttons":[
+                                    {
+                                        "type":"postback",
+                                        "title":"Select",
+                                        "payload":"CARD1"
+                                    }
+                                ],
+                                "subtitle":"Subtitle 1"
+                            },
+                            {
+                                "title":"Card 2",
+                                "image_url":"https://img.odcdn.com.br/wp-content/uploads/2025/03/pokemon-tipo-1920x1080.jpg",
+                                "subtitle":"Subtitle 2"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
+```

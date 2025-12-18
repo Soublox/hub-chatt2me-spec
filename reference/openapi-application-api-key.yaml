@@ -1,0 +1,667 @@
+openapi: 3.0.3
+info:
+  title: Hub Chatt2.me API
+  version: 1.0.0
+  description: Endpoints that accept authentication via application API key.
+servers:
+  - url: https://api.chatt2.me
+    description: Production
+security:
+  - apiKeyAuth: []
+tags:
+  - name: Communication
+  - name: Webhooks
+paths:
+  /v1/communication/messenger/message:
+    post:
+      tags:
+        - Communication
+      summary: Send a Facebook Messenger message
+      operationId: sendMessengerMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMessengerMessageInput'
+      responses:
+        '200':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendMessengerMessageOutput'
+        '400':
+          description: Invalid payload
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application channel not found or does not match the API key
+  /v1/communication/instagram/message:
+    post:
+      tags:
+        - Communication
+      summary: Send an Instagram message
+      operationId: sendInstagramMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendInstagramMessageInput'
+      responses:
+        '200':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendInstagramMessageOutput'
+        '400':
+          description: Invalid payload
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application channel not found or does not match the API key
+  /v1/organization/application/{applicationId}/webhook:
+    post:
+      tags:
+        - Webhooks
+      summary: Create a webhook for the application
+      operationId: createWebhook
+      parameters:
+        - $ref: '#/components/parameters/ApplicationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWebhookInput'
+      responses:
+        '201':
+          description: Webhook created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+        '400':
+          description: Invalid payload
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application not found or does not match the API key
+    get:
+      tags:
+        - Webhooks
+      summary: List webhooks for the application
+      operationId: listWebhooks
+      parameters:
+        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Webhooks retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListWebhooksOutput'
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application not found or does not match the API key
+  /v1/organization/application/{applicationId}/webhook/{webhookId}:
+    get:
+      tags:
+        - Webhooks
+      summary: Retrieve a webhook
+      operationId: getWebhook
+      parameters:
+        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '200':
+          description: Webhook retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application or webhook not found or does not match the API key
+    patch:
+      tags:
+        - Webhooks
+      summary: Update a webhook
+      operationId: updateWebhook
+      parameters:
+        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/WebhookId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWebhookInput'
+      responses:
+        '200':
+          description: Webhook updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+        '400':
+          description: Invalid payload
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application or webhook not found or does not match the API key
+    delete:
+      tags:
+        - Webhooks
+      summary: Delete a webhook
+      operationId: deleteWebhook
+      parameters:
+        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '204':
+          description: Webhook deleted
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application or webhook not found or does not match the API key
+  /v1/organization/application/{applicationId}/webhook/{webhookId}/webhook-log:
+    get:
+      tags:
+        - Webhooks
+      summary: List webhook logs
+      operationId: listWebhookLogs
+      parameters:
+        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Limit'
+        - in: query
+          name: status
+          required: false
+          schema:
+            $ref: '#/components/schemas/WebhookLogStatus'
+      responses:
+        '200':
+          description: Webhook logs retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListWebhookLogsOutput'
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application or webhook not found or does not match the API key
+  /v1/organization/application/{applicationId}/webhook/{webhookId}/webhook-log/{webhookLogId}/retry:
+    post:
+      tags:
+        - Webhooks
+      summary: Retry a webhook log
+      operationId: retryWebhookLog
+      parameters:
+        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/WebhookLogId'
+      responses:
+        '200':
+          description: Retry executed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetryWebhookLogOutput'
+        '400':
+          description: Log cannot be retried
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application, webhook, or log not found or does not match the API key
+  /v1/organization/application/{applicationId}/webhook/{webhookId}/webhook-log/retry:
+    post:
+      tags:
+        - Webhooks
+      summary: Retry multiple webhook logs
+      operationId: retryWebhookLogs
+      parameters:
+        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/WebhookId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetryWebhookLogsInput'
+      responses:
+        '200':
+          description: Retry results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetryWebhookLogsOutput'
+        '401':
+          description: Invalid API key
+        '404':
+          description: Application or webhook not found or does not match the API key
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+  parameters:
+    ApplicationId:
+      name: applicationId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    WebhookId:
+      name: webhookId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    WebhookLogId:
+      name: webhookLogId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    Offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    Limit:
+      name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50
+        default: 20
+  schemas:
+    QuickReply:
+      type: object
+      properties:
+        content_type:
+          type: string
+        title:
+          type: string
+        payload:
+          type: string
+      required:
+        - content_type
+        - title
+        - payload
+    Attachment:
+      type: object
+      properties:
+        type:
+          type: string
+        payload:
+          type: object
+          additionalProperties: true
+      required:
+        - type
+    SendMessengerMessageContent:
+      type: object
+      properties:
+        text:
+          type: string
+        attachment:
+          $ref: '#/components/schemas/Attachment'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        quick_replies:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuickReply'
+        sender_action:
+          type: string
+        payload:
+          type: object
+          additionalProperties: true
+    SendMessengerMessageInput:
+      type: object
+      properties:
+        from:
+          type: string
+          format: uuid
+        to:
+          type: string
+        content:
+          $ref: '#/components/schemas/SendMessengerMessageContent'
+      required:
+        - from
+        - to
+    SendMessengerMessageOutput:
+      type: object
+      properties:
+        messageId:
+          type: string
+          nullable: true
+        recipientId:
+          type: string
+        type:
+          $ref: '#/components/schemas/MessageType'
+    SendInstagramMessageContent:
+      type: object
+      properties:
+        text:
+          type: string
+        attachment:
+          $ref: '#/components/schemas/Attachment'
+        quick_replies:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuickReply'
+        sender_action:
+          type: string
+        payload:
+          type: object
+          additionalProperties: true
+    SendInstagramMessageInput:
+      type: object
+      properties:
+        from:
+          type: string
+          format: uuid
+        to:
+          type: string
+        content:
+          $ref: '#/components/schemas/SendInstagramMessageContent'
+      required:
+        - from
+        - to
+    SendInstagramMessageOutput:
+      type: object
+      properties:
+        messageId:
+          type: string
+          nullable: true
+        recipientId:
+          type: string
+        type:
+          $ref: '#/components/schemas/MessageType'
+    CreateWebhookHeaderInput:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+        - key
+        - value
+    CreateWebhookInput:
+      type: object
+      properties:
+        endpoint:
+          type: string
+          format: uri
+          description: Must be HTTPS
+        eventType:
+          $ref: '#/components/schemas/EventType'
+        authenticationProtocol:
+          $ref: '#/components/schemas/AuthenticationProtocol'
+        scope:
+          type: string
+          nullable: true
+        headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateWebhookHeaderInput'
+      required:
+        - endpoint
+        - eventType
+        - authenticationProtocol
+    UpdateWebhookHeaderInput:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+      required:
+        - key
+        - value
+    UpdateWebhookInput:
+      type: object
+      properties:
+        endpoint:
+          type: string
+          format: uri
+          description: Must be HTTPS
+        eventType:
+          $ref: '#/components/schemas/EventType'
+        authenticationProtocol:
+          $ref: '#/components/schemas/AuthenticationProtocol'
+        scope:
+          type: string
+          nullable: true
+        headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateWebhookHeaderInput'
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        applicationId:
+          type: string
+          format: uuid
+        active:
+          type: boolean
+        eventType:
+          $ref: '#/components/schemas/EventType'
+        endpoint:
+          type: string
+        numberOfErrors:
+          type: integer
+        authenticationProtocol:
+          $ref: '#/components/schemas/AuthenticationProtocol'
+        scope:
+          type: string
+          nullable: true
+        isVerified:
+          type: boolean
+        verifiedAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdDate:
+          type: string
+          format: date-time
+        lastModifiedDate:
+          type: string
+          format: date-time
+      required:
+        - id
+        - applicationId
+        - active
+        - eventType
+        - endpoint
+        - numberOfErrors
+        - authenticationProtocol
+        - isVerified
+        - createdDate
+        - lastModifiedDate
+    Pagination:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        totalPages:
+          type: integer
+      required:
+        - offset
+        - limit
+        - total
+        - totalPages
+    ListWebhooksOutput:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      required:
+        - data
+        - pagination
+    WebhookLog:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        webhookId:
+          type: string
+          format: uuid
+        statusCode:
+          type: integer
+          nullable: true
+        responseBody:
+          type: string
+          nullable: true
+        status:
+          $ref: '#/components/schemas/WebhookLogStatus'
+        sendAt:
+          type: string
+          format: date-time
+          nullable: true
+        isDeleted:
+          type: boolean
+        createdDate:
+          type: string
+          format: date-time
+        messageId:
+          type: string
+          format: uuid
+          nullable: true
+        webhook:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+            endpoint:
+              type: string
+            eventType:
+              type: string
+    ListWebhookLogsOutput:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookLog'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      required:
+        - data
+        - pagination
+    RetryWebhookLogOutput:
+      type: object
+      properties:
+        success:
+          type: boolean
+        newLogId:
+          type: string
+          format: uuid
+          nullable: true
+      required:
+        - success
+    RetryWebhookLogsInput:
+      type: object
+      properties:
+        webhookLogIds:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            format: uuid
+      required:
+        - webhookLogIds
+    RetryWebhookLogResult:
+      type: object
+      properties:
+        webhookLogId:
+          type: string
+          format: uuid
+        success:
+          type: boolean
+        newLogId:
+          type: string
+          format: uuid
+          nullable: true
+      required:
+        - webhookLogId
+        - success
+    RetryWebhookLogsOutput:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RetryWebhookLogResult'
+      required:
+        - results
+    MessageType:
+      type: string
+      enum:
+        - Text
+        - File
+        - Location
+        - Template
+        - Contact
+        - Button
+        - List
+        - Card
+        - Carousel
+        - Replyable
+        - Sticker
+        - Reaction
+        - Read
+        - QuickReply
+    EventType:
+      type: string
+      enum:
+        - Message
+        - MessageStatus
+    AuthenticationProtocol:
+      type: string
+      enum:
+        - NoAuthentication
+        - Oauth20
+        - PasswordAuthentication
+        - AWSSignatureV4
+        - JWT
+        - JWTExchange
+    WebhookLogStatus:
+      type: string
+      enum:
+        - Success
+        - Error

@@ -1,9 +1,11 @@
 ---
-title: Copy of Coming soon
-excerpt: You can see here our future features
+title: Events
+excerpt: >-
+  You can see here all the events we listen to in the APIs and how we send it to
+  your webhook
 deprecated: false
 hidden: false
-icon: far fa-crystal-ball
+icon: far fa-calendar
 metadata:
   robots: index
 next:
@@ -12,7 +14,3 @@ next:
       title: Copy of Changelog & Announcements
       type: endpoint
 ---
-* SMS support via Twilio.
-  * Target release: February 2026. We’ll post updates here.
-
-<br />

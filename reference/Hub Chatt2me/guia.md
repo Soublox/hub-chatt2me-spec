@@ -6,7 +6,7 @@ excerpt: >-
   webhooks for your applications.
 deprecated: false
 hidden: false
-icon: 📓
+icon: far fa-notebook
 metadata:
   robots: index
 next:

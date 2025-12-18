@@ -8,6 +8,7 @@ servers:
     description: Production
 security:
   - apiKeyAuth: []
+  - bearerAuth: []
 tags:
   - name: Communication
   - name: Webhooks
@@ -253,6 +254,10 @@ components:
       type: apiKey
       in: header
       name: x-api-key
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   parameters:
     ApplicationId:
       name: applicationId
@@ -321,6 +326,8 @@ components:
       properties:
         text:
           type: string
+        attachment:
+          $ref: '#/components/schemas/Attachment'
         attachments:
           type: array
           items:
@@ -364,6 +371,10 @@ components:
           type: string
         attachment:
           $ref: '#/components/schemas/Attachment'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
         quick_replies:
           type: array
           items:
@@ -636,9 +647,16 @@ components:
         - Audio
         - Sticker
         - File
+        - Location
+        - Template
+        - Contact
         - QuickReply
         - Button
+        - List
+        - Card
         - Carousel
+        - Reaction
+        - Read
     MessengerMessageType:
       type: string
       enum:
@@ -647,9 +665,16 @@ components:
         - Video
         - Audio
         - File
+        - Location
+        - Template
+        - Contact
         - QuickReply
         - Button
+        - List
+        - Card
         - Carousel
+        - Reaction
+        - Read
     EventType:
       type: string
       enum:

@@ -1,10 +1,8 @@
 ---
-title: adadasda
-excerpt: sdasdasdasd
+title: What the API key is used for.
 deprecated: false
 hidden: false
-icon: 😁
+icon: 📘
 metadata:
   robots: index
 ---
-asdadasd

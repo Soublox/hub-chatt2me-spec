@@ -1,5 +1,5 @@
 ---
-title: Copy of Changelog & Announcements
+title: Support & Contact
 deprecated: false
 hidden: false
 icon: far fa-list-tree

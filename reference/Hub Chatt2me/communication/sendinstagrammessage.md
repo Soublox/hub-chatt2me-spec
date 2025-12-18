@@ -156,3 +156,34 @@ After send you will receive something like that in your webhook:
     }
 }
 ```
+```json React
+{
+    "eventType":"Message",
+    "timestamp":"2025-12-18T20:52:51.178Z",
+    "payload":{
+        "recipient":{
+            "id":"847495124317323"
+        },
+        "sender_action":"react",
+        "payload":{
+            "message_id":"aWdfZAG1faXRlbToxOklHTWVzc2FnZAUlEOjE3ODQxNDc4NTIwMzA3MzQyOjM0MDI4MjM2Njg0MTcxMDMwMTI0NDI3NjAzNTI3NzI5ODYzMDkzODozMjU2NTQ3Njc1OTE5NzUwNTY4MjQwMjMzNzY4NDk3OTcxMgZDZD",
+            "reaction":"love"
+        }
+    }
+}
+```
+```json Unreact
+{
+    "eventType":"Message",
+    "timestamp":"2025-12-18T20:52:53.486Z",
+    "payload":{
+        "recipient":{
+            "id":"847495124317323"
+        },
+        "sender_action":"unreact",
+        "payload":{
+            "message_id":"aWdfZAG1faXRlbToxOklHTWVzc2FnZAUlEOjE3ODQxNDc4NTIwMzA3MzQyOjM0MDI4MjM2Njg0MTcxMDMwMTI0NDI3NjAzNTI3NzI5ODYzMDkzODozMjU2NTQ3Njc1OTE5NzUwNTY4MjQwMjMzNzY4NDk3OTcxMgZDZD"
+        }
+    }
+}
+```

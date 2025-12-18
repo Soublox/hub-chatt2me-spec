@@ -11,7 +11,9 @@ next:
       title: Support & Contact
       type: endpoint
 ---
-## 2025-12-18 — v1.0.0 (initial release)
+## Changes
+
+### 2025-12-18 — v1.0.0 (initial release)
 
 Messenger and Instagram send endpoints; webhook create/list/update/delete; webhook log listing and single/bulk retries; application-level API key regeneration.
 

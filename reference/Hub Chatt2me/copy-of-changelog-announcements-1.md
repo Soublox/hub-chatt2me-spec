@@ -1,5 +1,5 @@
 ---
-title: Changelog
+title: Changelogs
 deprecated: false
 hidden: false
 icon: far fa-list-tree

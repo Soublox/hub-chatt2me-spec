@@ -1,7 +1,7 @@
 ---
 title: Support & Contact
 deprecated: false
-hidden: false
+hidden: true
 icon: far fa-phone
 metadata:
   robots: index

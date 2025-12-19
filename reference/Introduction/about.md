@@ -1,7 +1,7 @@
 ---
 title: About
 deprecated: false
-hidden: false
+hidden: true
 icon: far fa-building-flag
 metadata:
   robots: index

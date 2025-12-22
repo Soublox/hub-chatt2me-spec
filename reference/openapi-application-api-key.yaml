@@ -69,8 +69,6 @@ paths:
         - Webhooks
       summary: Create a webhook for the application
       operationId: createWebhook
-      parameters:
-        - $ref: '#/components/parameters/ApplicationIdQuery'
       requestBody:
         required: true
         content:
@@ -96,7 +94,6 @@ paths:
       summary: List webhooks for the application
       operationId: listWebhooks
       parameters:
-        - $ref: '#/components/parameters/ApplicationIdQuery'
         - $ref: '#/components/parameters/Offset'
         - $ref: '#/components/parameters/Limit'
       responses:
@@ -118,7 +115,6 @@ paths:
       operationId: getWebhook
       parameters:
         - $ref: '#/components/parameters/WebhookId'
-        - $ref: '#/components/parameters/ApplicationIdQuery'
       responses:
         '200':
           description: Webhook retrieved
@@ -137,7 +133,6 @@ paths:
       operationId: updateWebhook
       parameters:
         - $ref: '#/components/parameters/WebhookId'
-        - $ref: '#/components/parameters/ApplicationIdQuery'
       requestBody:
         required: true
         content:
@@ -164,7 +159,6 @@ paths:
       operationId: deleteWebhook
       parameters:
         - $ref: '#/components/parameters/WebhookId'
-        - $ref: '#/components/parameters/ApplicationIdQuery'
       responses:
         '204':
           description: Webhook deleted
@@ -180,7 +174,6 @@ paths:
       operationId: listWebhookLogs
       parameters:
         - $ref: '#/components/parameters/WebhookId'
-        - $ref: '#/components/parameters/ApplicationIdQuery'
         - $ref: '#/components/parameters/Offset'
         - $ref: '#/components/parameters/Limit'
         - in: query
@@ -208,7 +201,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/WebhookId'
         - $ref: '#/components/parameters/WebhookLogId'
-        - $ref: '#/components/parameters/ApplicationIdQuery'
       responses:
         '200':
           description: Retry executed
@@ -230,7 +222,6 @@ paths:
       operationId: retryWebhookLogs
       parameters:
         - $ref: '#/components/parameters/WebhookId'
-        - $ref: '#/components/parameters/ApplicationIdQuery'
       requestBody:
         required: true
         content:
@@ -259,18 +250,6 @@ components:
       scheme: bearer
       bearerFormat: JWT
   parameters:
-    ApplicationIdQuery:
-      name: applicationId
-      in: query
-      required: false
-      schema:
-        type: string
-        format: uuid
-      description: >-
-        Required when using JWT authentication (Bearer token). Not required and
-        ignored when using API key authentication (x-api-key header). When using
-        API key, the application ID is automatically determined from the API
-        key.
     WebhookId:
       name: webhookId
       in: path

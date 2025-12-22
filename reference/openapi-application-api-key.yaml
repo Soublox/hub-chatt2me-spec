@@ -267,8 +267,10 @@ components:
         type: string
         format: uuid
       description: >-
-        Required when using JWT authentication. Ignored when using API key
-        authentication.
+        Required when using JWT authentication (Bearer token). Not required and
+        ignored when using API key authentication (x-api-key header). When using
+        API key, the application ID is automatically determined from the API
+        key.
     WebhookId:
       name: webhookId
       in: path

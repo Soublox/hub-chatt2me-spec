@@ -63,14 +63,14 @@ paths:
           description: Invalid API key
         '404':
           description: Application channel not found or does not match the API key
-  /v1/organization/application/{applicationId}/webhook:
+  /v1/organization/webhook:
     post:
       tags:
         - Webhooks
       summary: Create a webhook for the application
       operationId: createWebhook
       parameters:
-        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/ApplicationIdQuery'
       requestBody:
         required: true
         content:
@@ -96,7 +96,7 @@ paths:
       summary: List webhooks for the application
       operationId: listWebhooks
       parameters:
-        - $ref: '#/components/parameters/ApplicationId'
+        - $ref: '#/components/parameters/ApplicationIdQuery'
         - $ref: '#/components/parameters/Offset'
         - $ref: '#/components/parameters/Limit'
       responses:
@@ -110,15 +110,15 @@ paths:
           description: Invalid API key
         '404':
           description: Application not found or does not match the API key
-  /v1/organization/application/{applicationId}/webhook/{webhookId}:
+  /v1/organization/webhook/{webhookId}:
     get:
       tags:
         - Webhooks
       summary: Retrieve a webhook
       operationId: getWebhook
       parameters:
-        - $ref: '#/components/parameters/ApplicationId'
         - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/ApplicationIdQuery'
       responses:
         '200':
           description: Webhook retrieved
@@ -136,8 +136,8 @@ paths:
       summary: Update a webhook
       operationId: updateWebhook
       parameters:
-        - $ref: '#/components/parameters/ApplicationId'
         - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/ApplicationIdQuery'
       requestBody:
         required: true
         content:
@@ -163,8 +163,8 @@ paths:
       summary: Delete a webhook
       operationId: deleteWebhook
       parameters:
-        - $ref: '#/components/parameters/ApplicationId'
         - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/ApplicationIdQuery'
       responses:
         '204':
           description: Webhook deleted
@@ -172,15 +172,15 @@ paths:
           description: Invalid API key
         '404':
           description: Application or webhook not found or does not match the API key
-  /v1/organization/application/{applicationId}/webhook/{webhookId}/webhook-log:
+  /v1/organization/webhook/{webhookId}/webhook-log:
     get:
       tags:
         - Webhooks
       summary: List webhook logs
       operationId: listWebhookLogs
       parameters:
-        - $ref: '#/components/parameters/ApplicationId'
         - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/ApplicationIdQuery'
         - $ref: '#/components/parameters/Offset'
         - $ref: '#/components/parameters/Limit'
         - in: query
@@ -199,16 +199,16 @@ paths:
           description: Invalid API key
         '404':
           description: Application or webhook not found or does not match the API key
-  /v1/organization/application/{applicationId}/webhook/{webhookId}/webhook-log/{webhookLogId}/retry:
+  /v1/organization/webhook/{webhookId}/webhook-log/{webhookLogId}/retry:
     post:
       tags:
         - Webhooks
       summary: Retry a webhook log
       operationId: retryWebhookLog
       parameters:
-        - $ref: '#/components/parameters/ApplicationId'
         - $ref: '#/components/parameters/WebhookId'
         - $ref: '#/components/parameters/WebhookLogId'
+        - $ref: '#/components/parameters/ApplicationIdQuery'
       responses:
         '200':
           description: Retry executed
@@ -222,15 +222,15 @@ paths:
           description: Invalid API key
         '404':
           description: Application, webhook, or log not found or does not match the API key
-  /v1/organization/application/{applicationId}/webhook/{webhookId}/webhook-log/retry:
+  /v1/organization/webhook/{webhookId}/webhook-log/retry:
     post:
       tags:
         - Webhooks
       summary: Retry multiple webhook logs
       operationId: retryWebhookLogs
       parameters:
-        - $ref: '#/components/parameters/ApplicationId'
         - $ref: '#/components/parameters/WebhookId'
+        - $ref: '#/components/parameters/ApplicationIdQuery'
       requestBody:
         required: true
         content:
@@ -259,13 +259,16 @@ components:
       scheme: bearer
       bearerFormat: JWT
   parameters:
-    ApplicationId:
+    ApplicationIdQuery:
       name: applicationId
-      in: path
-      required: true
+      in: query
+      required: false
       schema:
         type: string
         format: uuid
+      description: >-
+        Required when using JWT authentication. Ignored when using API key
+        authentication.
     WebhookId:
       name: webhookId
       in: path
